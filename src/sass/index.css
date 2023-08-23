@@ -1,0 +1,113 @@
+body {
+    padding: 15px;
+  background-color: aliceblue;
+}
+
+.search-form {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input {
+  padding: 5px;
+  width: 300px;
+  font-size: 20;
+  border: 2px solid blue;
+  border-radius: 5px;
+  outline: none;
+}
+
+.submit-btn {
+  padding: 5px 8px 5px;
+  font-weight: 700;
+  font-size: 20;
+  line-height: 1.1;
+  letter-spacing: 0.2;
+  background-color: blue;
+  color: azure;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit-btn:hover,
+.submit-btn:focus,
+.load-more:hover,
+.load-more:focus {
+  scale: 1.1;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: calc((100% - 120px) / 4);
+  -webkit-box-shadow: 0px 4px 8px 6px rgba(34, 60, 80, 0.41);
+  -moz-box-shadow: 0px 4px 8px 6px rgba(34, 60, 80, 0.41);
+  box-shadow: 0px 4px 8px 6px rgba(34, 60, 80, 0.41);
+}
+
+.photo-card:hover,
+.photo-card :focus {
+  transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.info-item {
+  width: calc(100% - 15px) / 4;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.load-more {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  font-size: 20;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.2;
+  padding: 10px 15px 10px;
+  background-color: blue;
+  color: azure;
+  border: none;
+  border-radius: 5px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
