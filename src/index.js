@@ -5,6 +5,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+
 let inputVal;
 let page = 1;
 const imgPerPage = 40;
@@ -16,7 +17,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 
 formEl.addEventListener('submit', searchImg);
-// loadMoreBtn.addEventListener('click', loadMoreImg);
+loadMoreBtn.addEventListener('click', loadMoreImg);
 
 async function searchImg(evt) {
   evt.preventDefault();
@@ -40,43 +41,43 @@ async function createGallery() {
     if (page === 1) {
       notify(data.total);
     }
-    console.log(data);
 
-    galleryBox.insertAdjacentHTML('beforeend', createMarkup(data.hits));
+   addMarkup (data.hits);
 
-    // if (data.total > imgPerPage * page) {
-    //   loadMoreBtn.classList.remove('visually-hidden');
-    // }
+    if (data.total > imgPerPage * page) {
+      loadMoreBtn.classList.remove('visually-hidden');
+    }
     lightbox.refresh();
 
     totalShownImg += data.hits.length;
-    console.log(totalShownImg)
-
+    
     if (data.total === totalShownImg && data.total !== 0) {
       Notify.info("We're sorry, but you've reached the end of search results.");
-    }
+    };
 
-    if (data.total > totalShownImg) {
-      const { height: cardHeight } = document
+     const { height: cardHeight } = document
         .querySelector('.gallery')
         .firstElementChild.getBoundingClientRect();
     
       window.scrollBy({
         top: cardHeight * 2,
         behavior: 'smooth',
-      })
-    };
+      });
+    
   } catch (error) {
-    console.error(error.message);
-    Notify.failure('Oops! Something went wrong!');
+    console.error(error.message);  
   }
 }
 
-// function loadMoreImg() {
-//   page += 1;
-//   loadMoreBtn.classList.add('visually-hidden');
-//   createGallery(inputVal);
-// }
+function addMarkup(resp) {
+  galleryBox.insertAdjacentHTML('beforeend', createMarkup(resp));
+}
+
+function loadMoreImg() {
+  page += 1;
+  loadMoreBtn.classList.add('visually-hidden');
+  createGallery(inputVal);
+}
 
 function notify(resp) {
   if (resp === 0) {
