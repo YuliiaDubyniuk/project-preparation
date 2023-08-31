@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://YuliiaDubyniuk.github.io/goit-js-hw-11",
+  "homepage": "https://YuliiaDubyniuk.github.io/project-preparation",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /project-preparation/"
   },
   "repository": {
     "type": "git",
